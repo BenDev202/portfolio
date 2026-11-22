@@ -25,7 +25,7 @@ export default function Navbar({
   fixed = true,
 }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [lang, setLang] = useState<"esp" | "eng">("esp");
+  const [lang, setLang] = useState<"eng" | "esp">("eng");
   const [showBriefModal, setShowBriefModal] = useState(false);
   const [showSoonToast, setShowSoonToast] = useState(false);
 
@@ -65,64 +65,64 @@ export default function Navbar({
       <header
         className={`w-full z-40 transition-all duration-300 ${
           fixed ? "fixed top-0 left-0" : "relative"
-        } px-4 sm:px-6 md:px-8 py-4 md:py-6 pointer-events-none`}
+        } px-4 sm:px-6 md:px-8 py-3 sm:py-4 pointer-events-none`}
       >
-        <div className="max-w-[1800px] mx-auto flex items-center justify-between relative h-[38px]">
+        <div className="max-w-[1800px] mx-auto flex items-center justify-between relative h-[32px]">
           {/* Left: Logo from /public/logo.svg + Portfolio Name */}
           <Link
             href="/"
             aria-label={`${brandName} — Portfolio`}
-            className="group flex items-center gap-2.5 pointer-events-auto select-none"
+            className="group flex items-center gap-2 pointer-events-auto select-none"
           >
-            {/* Logo Image from public folder (no shadow) */}
-            <div className="relative h-[34px] w-[30px] flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+            {/* Logo Image from public folder */}
+            <div className="relative h-[28px] sm:h-[30px] w-[26px] sm:w-[28px] flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
               <Image
                 src="/logo.svg"
                 alt={`${brandName} Logo`}
-                width={34}
-                height={38}
+                width={28}
+                height={32}
                 priority
                 unoptimized
-                className="h-[34px] w-auto max-w-[34px] object-contain"
+                className="h-[28px] sm:h-[30px] w-auto max-w-[28px] object-contain"
               />
             </div>
 
-            {/* Wordmark using the exact font and tracking as the page heading */}
+            {/* Wordmark */}
             <div className="flex flex-col">
-              <span className="text-[20px] md:text-[22px] font-semibold tracking-tight text-black dark:text-zinc-50 leading-none">
+              <span className="text-[17px] sm:text-[19px] font-bold tracking-tight text-black leading-none">
                 {brandName}
               </span>
-              <span className="text-[10px] font-medium tracking-tight uppercase text-zinc-500 leading-tight">
+              <span className="text-[9px] font-bold tracking-tight uppercase text-zinc-500 leading-tight">
                 Portfolio
               </span>
             </div>
           </Link>
 
-          {/* Center: "MENU : :" Pill Button (no shadow) */}
+          {/* Center: "MENU : :" Compact Pill Button */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 pointer-events-auto">
             <button
               type="button"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-expanded={menuOpen}
               aria-controls="main-menu-drawer"
-              className="h-[38px] px-[16px] bg-[#FBFBFB] hover:bg-white text-black dark:text-zinc-900 rounded-full inline-flex items-center justify-center gap-[6px] transition-all duration-200 cursor-pointer active:scale-95"
+              className="h-[30px] sm:h-[32px] px-3 sm:px-3.5 bg-[#FBFBFB] hover:bg-white text-black rounded-full inline-flex items-center justify-center gap-1.5 transition-all duration-200 cursor-pointer active:scale-95"
             >
-              <span className="text-[13px] md:text-[14px] font-semibold tracking-tight uppercase leading-none">
+              <span className="text-[9.95556px] leading-[10px] font-bold tracking-tight uppercase">
                 {menuOpen ? "Close" : "Menu"}
               </span>
 
               {/* 2x2 Dots grid (::) */}
-              <div className="flex items-center gap-[2.5px] h-[11.5px] w-[11px] justify-center">
+              <div className="flex items-center gap-[2px] h-[9px] w-[9px] justify-center">
                 <svg
                   viewBox="0 0 4.3 11.5"
-                  className="h-[11px] w-[4.3px] fill-current"
+                  className="h-[9px] w-[3.5px] fill-current"
                 >
                   <circle cx="2.15" cy="2.15" r="2.15" />
                   <circle cx="2.15" cy="9.35" r="2.15" />
                 </svg>
                 <svg
                   viewBox="0 0 4.3 11.5"
-                  className="h-[11px] w-[4.3px] fill-current"
+                  className="h-[9px] w-[3.5px] fill-current"
                 >
                   <circle cx="2.15" cy="2.15" r="2.15" />
                   <circle cx="2.15" cy="9.35" r="2.15" />
@@ -131,26 +131,26 @@ export default function Navbar({
             </button>
           </div>
 
-          {/* Right: Language switch + "SHARE A BRIEF" (no shadows) */}
+          {/* Right: Language switch + "SHARE A BRIEF" */}
           <nav
             aria-label="Language and contact"
             className="flex items-center gap-1 sm:gap-1.5 pointer-events-auto ml-auto"
           >
-            {/* Language Pill (ESP / ENG) */}
+            {/* Compact Language Pill ("eng" / "esp") */}
             <button
               type="button"
               onClick={toggleLanguage}
-              className="h-[38px] px-3.5 bg-[#FBFBFB] hover:bg-white text-black dark:text-zinc-900 rounded-full inline-flex items-center justify-center text-[13px] md:text-[14px] font-semibold tracking-tight uppercase transition-all duration-200 cursor-pointer active:scale-95"
+              className="h-[30px] sm:h-[32px] px-2.5 sm:px-3 bg-[#FBFBFB] hover:bg-white text-black rounded-full inline-flex items-center justify-center text-[9.95556px] leading-[10px] font-bold tracking-tight uppercase transition-all duration-200 cursor-pointer active:scale-95"
               aria-label="Switch language"
             >
               {lang}
             </button>
 
-            {/* "SHARE A BRIEF" Acid Lime Pill -> Hover Hot Pink (no shadow) */}
+            {/* Compact "SHARE A BRIEF" Acid Lime Pill -> 9.95556px / 10px line-height */}
             <button
               type="button"
               onClick={() => setShowBriefModal(true)}
-              className="h-[38px] px-5 bg-[#D5FF69] hover:bg-[#FF5490] text-black rounded-full inline-flex items-center justify-center text-[13px] md:text-[14px] font-semibold tracking-tight uppercase transition-colors duration-200 cursor-pointer active:scale-95"
+              className="h-[30px] sm:h-[32px] px-3.5 sm:px-4 bg-[#D5FF69] hover:bg-[#cbf55c] hover:brightness-95 text-black rounded-full inline-flex items-center justify-center text-[9.95556px] leading-[10px] font-bold tracking-tight uppercase transition-colors duration-200 cursor-pointer active:scale-95"
             >
               Share a brief
             </button>
@@ -160,7 +160,7 @@ export default function Navbar({
 
       {/* Language Notification Toast */}
       {showSoonToast && (
-        <div className="fixed top-20 right-6 z-50 bg-black text-white text-xs md:text-sm font-medium tracking-tight px-4 py-2.5 rounded-full border border-white/10 animate-fade-in flex items-center gap-2">
+        <div className="fixed top-16 right-6 z-50 bg-black text-white text-xs font-medium tracking-tight px-3.5 py-2 rounded-full border border-white/10 animate-fade-in flex items-center gap-2">
           <span>
             {lang === "esp"
               ? "🇪🇸 Versión en español disponible pronto."
@@ -187,36 +187,23 @@ export default function Navbar({
           className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         />
 
-        {/* Sliding Menu Panel */}
+        {/* Sliding Menu Panel with White Background */}
         <div
-          className={`absolute top-0 right-0 w-full sm:w-[480px] md:w-[560px] h-full bg-[#DADADA] text-black flex flex-col justify-between p-6 sm:p-10 transition-transform duration-500 ease-out ${
+          className={`absolute top-0 right-0 w-full sm:w-[480px] md:w-[560px] h-full bg-white text-black flex flex-col justify-between p-6 sm:p-10 transition-transform duration-500 ease-out shadow-2xl ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          {/* Header inside drawer */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <Image
-                src="/logo.svg"
-                alt={brandName}
-                width={28}
-                height={32}
-                unoptimized
-                className="h-[28px] w-auto object-contain"
-              />
-              <span className="text-xl font-semibold tracking-tight text-black">
-                {brandName}
-              </span>
-            </div>
+          {/* Header inside drawer: Armand removed, Close button aligned to right */}
+          <div className="flex items-center justify-end">
             <button
               type="button"
               onClick={() => setMenuOpen(false)}
-              className="h-[38px] px-4 bg-[#FBFBFB] hover:bg-white text-black rounded-full inline-flex items-center gap-2 text-xs font-semibold tracking-tight uppercase transition-all cursor-pointer active:scale-95"
+              className="h-[30px] sm:h-[32px] px-3.5 bg-zinc-100 hover:bg-zinc-200 text-black rounded-full inline-flex items-center gap-1.5 text-[9.95556px] leading-[10px] font-bold tracking-tight uppercase transition-all cursor-pointer active:scale-95"
             >
               <span>Close</span>
               <div className="flex items-center gap-0.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                <div className="w-1.5 h-1.5 rounded-full bg-black" />
+                <div className="w-1 h-1 rounded-full bg-black" />
+                <div className="w-1 h-1 rounded-full bg-black" />
               </div>
             </button>
           </div>
@@ -233,7 +220,7 @@ export default function Navbar({
                 key={index}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-black hover:text-[#FF5490] transition-colors leading-tight group flex items-center justify-between"
+                className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-black hover:opacity-60 transition-opacity leading-tight group flex items-center justify-between"
               >
                 <span>{item.label}</span>
                 <span className="text-lg opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1">
@@ -242,12 +229,12 @@ export default function Navbar({
               </a>
             ))}
 
-            {/* Book a Call Accent Link (no shadow) */}
+            {/* Book a Call Accent Link */}
             <a
               href={calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center justify-between px-6 py-4 bg-[#D5FF69] hover:bg-[#FF5490] text-black rounded-full text-lg sm:text-xl font-semibold tracking-tight uppercase transition-colors"
+              className="mt-2 inline-flex items-center justify-between px-5 py-3 bg-[#D5FF69] hover:bg-[#cbf55c] hover:brightness-95 text-black rounded-full text-base sm:text-lg font-semibold tracking-tight uppercase transition-colors"
             >
               <span>Book a call</span>
               <span>↗</span>
@@ -308,7 +295,7 @@ export default function Navbar({
           <div className="relative bg-[#FBFBFB] w-full max-w-lg rounded-3xl p-6 sm:p-8 border border-black/5 z-10 animate-scale-up">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-tight text-[#FF5490] block mb-1">
+                <span className="text-xs font-semibold uppercase tracking-tight text-zinc-600 block mb-1">
                   Let's collaborate
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-semibold text-black tracking-tight">
@@ -318,7 +305,7 @@ export default function Navbar({
               <button
                 type="button"
                 onClick={() => setShowBriefModal(false)}
-                className="w-9 h-9 rounded-full bg-zinc-200 hover:bg-zinc-300 flex items-center justify-center text-sm font-semibold text-black transition-colors"
+                className="w-8 h-8 rounded-full bg-zinc-200 hover:bg-zinc-300 flex items-center justify-center text-sm font-semibold text-black transition-colors"
                 aria-label="Close dialog"
               >
                 ✕
@@ -341,7 +328,7 @@ export default function Navbar({
                   type="text"
                   required
                   placeholder="e.g. Sarah"
-                  className="w-full px-4 py-3 rounded-2xl bg-zinc-100 border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-black"
+                  className="w-full px-4 py-2.5 rounded-2xl bg-zinc-100 border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-black text-sm"
                 />
               </div>
 
@@ -353,7 +340,7 @@ export default function Navbar({
                   type="email"
                   required
                   placeholder="sarah@company.com"
-                  className="w-full px-4 py-3 rounded-2xl bg-zinc-100 border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-black"
+                  className="w-full px-4 py-2.5 rounded-2xl bg-zinc-100 border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-black text-sm"
                 />
               </div>
 
@@ -365,20 +352,20 @@ export default function Navbar({
                   rows={3}
                   required
                   placeholder="Tell me about your project goals, scope, and timeline..."
-                  className="w-full px-4 py-3 rounded-2xl bg-zinc-100 border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-black"
+                  className="w-full px-4 py-2.5 rounded-2xl bg-zinc-100 border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-black text-sm"
                 />
               </div>
 
-              <div className="flex items-center gap-3 mt-3">
+              <div className="flex items-center gap-3 mt-2">
                 <button
                   type="submit"
-                  className="flex-1 py-3.5 bg-[#D5FF69] hover:bg-[#FF5490] text-black rounded-full font-semibold text-sm uppercase tracking-tight transition-colors cursor-pointer"
+                  className="flex-1 py-3 bg-[#D5FF69] hover:bg-[#cbf55c] hover:brightness-95 text-black rounded-full font-semibold text-xs sm:text-sm uppercase tracking-tight transition-colors cursor-pointer"
                 >
                   Send Brief
                 </button>
                 <a
                   href={`mailto:${briefEmail}?subject=Direct%20Inquiry%20for%20Armand`}
-                  className="py-3.5 px-5 bg-zinc-200 hover:bg-zinc-300 text-black rounded-full font-semibold text-xs uppercase tracking-tight transition-colors"
+                  className="py-3 px-4 bg-zinc-200 hover:bg-zinc-300 text-black rounded-full font-semibold text-xs uppercase tracking-tight transition-colors"
                 >
                   Email directly
                 </a>
