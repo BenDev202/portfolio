@@ -8,7 +8,7 @@ interface TabTitleProps {
 }
 
 export default function TabTitle({
-  originalTitle = "Portfolio | Developer & Designer",
+  originalTitle = "Armand | Developer & Designer",
   awayTitle = "Hey, over here! 👋",
 }: TabTitleProps) {
   useEffect(() => {

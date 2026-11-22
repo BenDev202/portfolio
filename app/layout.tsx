@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Developer & Designer",
+  title: "Armand | Developer & Designer",
   description: "Personal portfolio showcasing creative development, design, and projects.",
 };
 
@@ -30,7 +30,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <TabTitle
-          originalTitle="Portfolio | Developer & Designer"
+          originalTitle="Armand | Developer & Designer"
           awayTitle="Hey, over here 👋"
         />
         {children}
